@@ -2,6 +2,8 @@
 
 namespace NotificationChannels\Fcm;
 
+use Kreait\Firebase\Messaging;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
@@ -17,23 +19,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-        // Bootstrap code here.
-
-        /**
-         * Here's some example code we use for the pusher package.
-
         $this->app->when(Channel::class)
-            ->needs(Pusher::class)
+            ->needs(Messaging::class)
             ->give(function () {
-                $pusherConfig = config('broadcasting.connections.pusher');
-
-                return new Pusher(
-                    $pusherConfig['key'],
-                    $pusherConfig['secret'],
-                    $pusherConfig['app_id']
-                );
+                return $this->app->make(Messaging::class);
             });
-         */
-
     }
 }

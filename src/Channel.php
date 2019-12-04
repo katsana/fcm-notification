@@ -2,30 +2,40 @@
 
 namespace NotificationChannels\Fcm;
 
-use NotificationChannels\Fcm\Exceptions\CouldNotSendNotification;
 use Illuminate\Notifications\Notification;
+use Kreait\Firebase\Messaging;
 
 class Channel
 {
-    public function __construct()
+    /**
+     * @var \Kreait\Firebase\Messaging
+     */
+    protected $messaging;
+
+    /**
+     * @param \Kreait\Firebase\Messaging $messaging
+     */
+    public function __construct(Messaging $messaging)
     {
-        // Initialisation code here
+        $this->messaging = $messaging;
     }
 
     /**
      * Send the given notification.
      *
      * @param mixed $notifiable
-     * @param \Illuminate\Notifications\Notification $notification
-     *
-     * @throws \NotificationChannels\:channel_namespace\Exceptions\CouldNotSendNotification
+     * @param Notifications\Notification|Notification $notification
      */
     public function send($notifiable, Notification $notification)
     {
-        //$response = [a call to the api of your notification send]
+        /** @var Message $message */
+        $message = $notification->toFcm($notification);
 
-//        if ($response->error) { // replace this by the code need to check for errors
-//            throw CouldNotSendNotification::serviceRespondedWithAnError($response);
-//        }
+        if (! $notifiable->routeNotificationFor('fcm', $notification) &&
+            ! $message instanceof Message) {
+            return;
+        }
+        
+        $this->messaging->send($message->toArray());
     }
 }

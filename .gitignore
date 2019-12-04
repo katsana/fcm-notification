@@ -4,6 +4,7 @@
 
 # Sample
 /example.php
+firebase.credential.json
 
 # PHPUnit
 /coverage/
