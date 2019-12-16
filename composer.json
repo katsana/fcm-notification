@@ -28,8 +28,20 @@
     "require-dev": {
         "orchestra/testbench": "^4.0.1"
     },
+    "scripts": {
+        "test": [
+            "./vendor/bin/phpunit -c ."
+        ]
+    },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NotificationChannels\\Fcm\\ServiceProvider"
+            ]
+        }
     },
     "minimum-stability": "dev"
 }
