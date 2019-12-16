@@ -9,6 +9,16 @@
             "email": "developer@katsana.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "NotificationChannels\\Fcm\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NotificationChannels\\Fcm\\Tests\\": "tests/"
+        }
+    },
     "require": {
         "php": ">=7.2",
         "kreait/laravel-firebase": "^1.2",
@@ -17,16 +27,6 @@
     },
     "require-dev": {
         "orchestra/testbench": "^3.8.5 || ^4.0.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "NotificationChannels\\Fcm\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "NotificationChannels\\Fcm\\Test\\": "tests"
-        }
     },
     "config": {
         "sort-packages": true
