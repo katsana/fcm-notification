@@ -28,10 +28,14 @@ class Channel
      */
     public function send($notifiable, Notification $notification)
     {
-        /** @var Message $message */
-        $message = $notification->toFcm($notification);
+        if (! $notification instanceof Notifications\Notification) {
+            return;
+        }
 
-        if (! $notifiable->routeNotificationFor('fcm', $notification) &&
+        /** @var Message $message */
+        $message = $notification->toFcm($notifiable);
+
+        if (! $notifiable->routeNotificationFor('fcm', $notification) ||
             ! $message instanceof Message) {
             return;
         }
