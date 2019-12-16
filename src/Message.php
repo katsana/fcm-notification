@@ -133,4 +133,20 @@ class Message
             'fcm_options' => $this->fcmOptions,
         ]);
     }
+
+    /**
+     * Clone the instance.
+     */
+    public function __clone()
+    {
+        $this->topic = null;
+        $this->condition = null;
+        $this->token = null;
+        $this->data = $this->data;
+        $this->notification = $this->notification;
+        $this->androidConfig = $this->androidConfig;
+        $this->apnsConfig = $this->apnsConfig;
+        $this->webPushConfig = $this->webPushConfig;
+        $this->fcmOptions = $this->fcmOptions;
+    }
 }

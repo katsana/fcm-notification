@@ -3,6 +3,7 @@
 namespace NotificationChannels\Fcm;
 
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Collection;
 use Kreait\Firebase\Messaging;
 
 class Channel
@@ -45,17 +46,21 @@ class Channel
             return;
         }
 
-        $message = $notification->toFcm($notifiable);
+        $messageBag = $notification->toFcm($notifiable);
 
-        if (! $message instanceof Message) {
+        if (! $messageBag instanceof Message) {
             return;
         }
 
+        $messages = Collection::make();
+
         foreach (static::$channels as $name => $method) {
             if (\is_null($value = $notifiable->routeNotificationFor($driver, $notification)) {
-                $this->messaging->{$method}($value);
-                $this->messaging->send($message->toArray());
+                $message = clone $messageBag;
+                $messages->push($message->{$method}($value)->toArray());
             }
         }
+
+        $this->messaging->sendAll($messages->all());
     }
 }
