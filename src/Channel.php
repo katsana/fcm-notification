@@ -42,7 +42,7 @@ class Channel
      */
     public function send($notifiable, Notification $notification)
     {
-        if (! $notification instanceof Notifications\Notification) {
+        if (! \method_exists($notification, 'toFcm')) {
             return;
         }
 
@@ -55,7 +55,7 @@ class Channel
         $messages = Collection::make();
 
         foreach (static::$channels as $name => $method) {
-            if (\is_null($value = $notifiable->routeNotificationFor($driver, $notification)) {
+            if (\is_null($value = $notifiable->routeNotificationFor($name, $notification)) {
                 $message = clone $messageBag;
                 $messages->push($message->{$method}($value)->toArray());
             }
