@@ -1,6 +1,6 @@
 {
     "name": "katsana/fcm-notification",
-    "description": ":package_description",
+    "description": "Firebase Cloud Messaging (FCM) Notification Channel for Laravel",
     "homepage": "https://github.com/katsana/fcm-notification",
     "license": "MIT",
     "authors": [
@@ -11,13 +11,12 @@
     ],
     "require": {
         "php": ">=7.2",
+        "kreait/laravel-firebase": "^1.2",
         "illuminate/notifications": "^5.8 || ^6.0",
-        "illuminate/support": "^5.8 || ^6.0",
-        "kreait/laravel-firebase": "^1.2"
+        "illuminate/support": "^5.8 || ^6.0"
     },
     "require-dev": {
-        "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "^8.0"
+        "orchestra/testbench": "^3.8.5 || ^4.0.1"
     },
     "autoload": {
         "psr-4": {
@@ -31,5 +30,6 @@
     },
     "config": {
         "sort-packages": true
-    }
+    },
+    "minimum-stability": "dev"
 }
