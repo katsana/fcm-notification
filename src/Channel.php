@@ -12,9 +12,6 @@ class Channel
      */
     protected $messaging;
 
-    /**
-     * @param \Kreait\Firebase\Messaging $messaging
-     */
     public function __construct(Messaging $messaging)
     {
         $this->messaging = $messaging;
@@ -23,7 +20,7 @@ class Channel
     /**
      * Send the given notification.
      *
-     * @param mixed $notifiable
+     * @param mixed                                   $notifiable
      * @param Notifications\Notification|Notification $notification
      */
     public function send($notifiable, Notification $notification)
@@ -39,7 +36,7 @@ class Channel
             ! $message instanceof Message) {
             return;
         }
-        
+
         $this->messaging->send($message->toArray());
     }
 }

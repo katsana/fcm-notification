@@ -8,9 +8,10 @@ use Illuminate\Notifications\Notification as IlluminateNotification;
 abstract class Notification extends IlluminateNotification
 {
     use Queueable;
-    
+
     /**
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
+     *
      * @return array
      */
     public function via($notifiable)
@@ -21,7 +22,8 @@ abstract class Notification extends IlluminateNotification
     /**
      * Get the message representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param mixed $notifiable
+     *
      * @return \NotificationChannels\Fcm\Message
      */
     abstract public function toFcm($notifiable);
