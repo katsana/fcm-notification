@@ -22,11 +22,11 @@
     "require": {
         "php": ">=7.2",
         "kreait/laravel-firebase": "^1.2",
-        "illuminate/notifications": "^5.8 || ^6.0",
-        "illuminate/support": "^5.8 || ^6.0"
+        "illuminate/notifications": "^6.0",
+        "illuminate/support": "^6.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.8.5 || ^4.0.1"
+        "orchestra/testbench": "^4.0.1"
     },
     "config": {
         "sort-packages": true
