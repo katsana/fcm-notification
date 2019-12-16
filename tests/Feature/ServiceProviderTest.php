@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\Fcm\Tests;
+namespace NotificationChannels\Fcm\Tests\Feature;
 
 use Illuminate\Notifications\ChannelManager;
 use Mockery as m;
@@ -12,18 +12,17 @@ class ServiceProviderTest extends TestCase
     /**
      * Get package providers.
      *
-     * @param  \Illuminate\Foundation\Application  $app
-     *
-     * @return array
+     * @param \Illuminate\Foundation\Application $app
      */
     protected function getPackageProviders($app): array
     {
         return [];
     }
-/**
+
+    /**
      * Define environment setup.
      *
-     * @param  \Illuminate\Foundation\Application   $app
+     * @param \Illuminate\Foundation\Application $app
      */
     protected function getEnvironmentSetUp($app): void
     {
