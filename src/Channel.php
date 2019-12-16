@@ -23,7 +23,7 @@ class Channel
     protected static $channels = [
         'fcm' => 'token',
         'fcm-by-topic' => 'topic',
-        'fcm-by-channel' => 'channel',
+        'fcm-by-condition' => 'condition',
     ];
 
     /**
@@ -55,7 +55,7 @@ class Channel
         $messages = Collection::make();
 
         foreach (static::$channels as $name => $method) {
-            if (\is_null($value = $notifiable->routeNotificationFor($name, $notification)) {
+            if (\is_null($value = $notifiable->routeNotificationFor($name, $notification))) {
                 $message = clone $messageBag;
                 $messages->push($message->{$method}($value)->toArray());
             }

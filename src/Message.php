@@ -51,6 +51,11 @@ class Message
      */
     protected $fcmOptions = [];
 
+    /**
+     * Topic name.
+     *
+     * @return $this
+     */
     public function topic(string $topic)
     {
         $this->topic = $topic;
@@ -58,6 +63,11 @@ class Message
         return $this;
     }
 
+    /**
+     * Topic condition.
+     *
+     * @return $this
+     */
     public function condition(string $condition)
     {
         $this->condition = $condition;
@@ -65,6 +75,11 @@ class Message
         return $this;
     }
 
+    /**
+     * Device token.
+     *
+     * @return $this
+     */
     public function token(string $token)
     {
         $this->token = $token;
@@ -72,6 +87,11 @@ class Message
         return $this;
     }
 
+    /**
+     * Data payload.
+     *
+     * @return $this
+     */
     public function data(array $data)
     {
         $this->data = $data;
@@ -79,6 +99,11 @@ class Message
         return $this;
     }
 
+    /**
+     * Notification data.
+     *
+     * @return $this
+     */
     public function notification(string $title = null, string $body = null, string $image = null)
     {
         $this->notification = compact('title', 'body', 'image');
@@ -86,6 +111,13 @@ class Message
         return $this;
     }
 
+    /**
+     * Android configuration.
+     *
+     * @see https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#androidconfig
+     *
+     * @return $this
+     */
     public function android(array $androidConfig)
     {
         $this->androidConfig = $androidConfig;
@@ -93,6 +125,13 @@ class Message
         return $this;
     }
 
+    /**
+     * Apple Push Notification Service configuration.
+     *
+     * @see https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#apnsconfig
+     *
+     * @return $this
+     */
     public function apns(array $apnsConfig)
     {
         $this->apnsConfig = $apnsConfig;
@@ -100,6 +139,13 @@ class Message
         return $this;
     }
 
+    /**
+     * WebPush configuration.
+     *
+     * @see https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#webpushconfig
+     *
+     * @return $this
+     */
     public function webPush(array $webPushConfig)
     {
         $this->webPushConfig = $webPushConfig;
@@ -107,6 +153,13 @@ class Message
         return $this;
     }
 
+    /**
+     * FCM Options.
+     *
+     * @see https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#fcmoptions
+     *
+     * @return $this
+     */
     public function fcmOptions(array $fcmOptions)
     {
         $this->fcmOptions = $fcmOptions;
@@ -116,8 +169,6 @@ class Message
 
     /**
      * Get the instance as an array.
-     *
-     * @return array
      */
     public function toArray(): array
     {
