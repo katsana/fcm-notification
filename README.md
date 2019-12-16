@@ -4,6 +4,13 @@ Firebase Cloud Messaging (FCM) Notification Channel for Laravel
 
 This package makes it easy to send notifications using [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) with Laravel 6.0+ using [kreait/laravel-firebase](https://github.com/kreait/laravel-firebase)
 
+[![Build Status](https://travis-ci.org/katsana/fcm-notification.svg?branch=master)](https://travis-ci.org/katsana/fcm-notification)
+[![Latest Stable Version](https://poser.pugx.org/katsana/fcm-notification/v/stable)](https://packagist.org/packages/katsana/fcm-notification)
+[![Total Downloads](https://poser.pugx.org/katsana/fcm-notification/downloads)](https://packagist.org/packages/katsana/fcm-notification)
+[![Latest Unstable Version](https://poser.pugx.org/katsana/fcm-notification/v/unstable)](https://packagist.org/packages/katsana/fcm-notification)
+[![License](https://poser.pugx.org/katsana/fcm-notification/license)](https://packagist.org/packages/katsana/fcm-notification)
+[![Coverage Status](https://coveralls.io/repos/github/katsana/fcm-notification/badge.svg?branch=master)](https://coveralls.io/github/katsana/fcm-notification?branch=master)
+
 ## Installation
 
 FCM Notification can be installed via composer:
