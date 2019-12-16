@@ -29,11 +29,10 @@ class Channel
             return;
         }
 
-        /** @var Message $message */
         $message = $notification->toFcm($notifiable);
 
-        if (! $notifiable->routeNotificationFor('fcm', $notification) ||
-            ! $message instanceof Message) {
+        if (\is_null($notifiable->routeNotificationFor('fcm', $notification))
+            || ! $message instanceof Message) {
             return;
         }
 

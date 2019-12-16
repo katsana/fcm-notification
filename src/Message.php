@@ -51,63 +51,63 @@ class Message
      */
     protected $fcmOptions = [];
 
-    public function topic(string $topic): self
+    public function topic(string $topic)
     {
         $this->topic = $topic;
 
         return $this;
     }
 
-    public function condition(string $condition): self
+    public function condition(string $condition)
     {
         $this->condition = $condition;
 
         return $this;
     }
 
-    public function token(string $token): self
+    public function token(string $token)
     {
         $this->token = $token;
 
         return $this;
     }
 
-    public function data(array $data): self
+    public function data(array $data)
     {
         $this->data = $data;
 
         return $this;
     }
 
-    public function notification(string $title = null, string $body = null, string $image = null): self
+    public function notification(string $title = null, string $body = null, string $image = null)
     {
         $this->notification = compact('title', 'body', 'image');
 
         return $this;
     }
 
-    public function android(array $androidConfig): self
+    public function android(array $androidConfig)
     {
         $this->androidConfig = $androidConfig;
 
         return $this;
     }
 
-    public function apns(array $apnsConfig): self
+    public function apns(array $apnsConfig)
     {
         $this->apnsConfig = $apnsConfig;
 
         return $this;
     }
 
-    public function webPush(array $webPushConfig): self
+    public function webPush(array $webPushConfig)
     {
         $this->webPushConfig = $webPushConfig;
 
         return $this;
     }
 
-    public function fcmOptions(array $fcmOptions): self
+    public function fcmOptions(array $fcmOptions)
     {
         $this->fcmOptions = $fcmOptions;
 
@@ -116,7 +116,7 @@ class Message
 
     public function toArray()
     {
-        return array_filter([
+        return \array_filter([
             MessageTarget::TOPIC => $this->topic,
             MessageTarget::CONDITION => $this->condition,
             MessageTarget::TOKEN => $this->token,
