@@ -8,10 +8,26 @@ use Kreait\Firebase\Messaging;
 class Channel
 {
     /**
+     * Messaging driver.
+     *
      * @var \Kreait\Firebase\Messaging
      */
     protected $messaging;
 
+    /**
+     * Messaging authentication channel.
+     *
+     * @var array
+     */
+    protected static $channels = [
+        'fcm' => 'token',
+        'fcm-by-topic' => 'topic',
+        'fcm-by-channel' => 'channel',
+    ];
+
+    /**
+     * Construct notification channel.
+     */
     public function __construct(Messaging $messaging)
     {
         $this->messaging = $messaging;
@@ -31,11 +47,15 @@ class Channel
 
         $message = $notification->toFcm($notifiable);
 
-        if (\is_null($notifiable->routeNotificationFor('fcm', $notification))
-            || ! $message instanceof Message) {
+        if (! $message instanceof Message) {
             return;
         }
 
-        $this->messaging->send($message->toArray());
+        foreach (static::$channels as $name => $method) {
+            if (\is_null($value = $notifiable->routeNotificationFor($driver, $notification)) {
+                $this->messaging->{$method}($value);
+                $this->messaging->send($message->toArray());
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace NotificationChannels\Fcm;
 
+use Illuminate\Contracts\Container\Container;
 use Kreait\Firebase\Messaging;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
@@ -21,8 +22,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->app->when(Channel::class)
             ->needs(Messaging::class)
-            ->give(function () {
-                return $this->app->make(Messaging::class);
+            ->give(static function (Container $app) {
+                return $app->make(Messaging::class);
             });
     }
 }

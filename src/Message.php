@@ -114,7 +114,12 @@ class Message
         return $this;
     }
 
-    public function toArray()
+    /**
+     * Get the instance as an array.
+     *
+     * @return array
+     */
+    public function toArray(): array
     {
         return \array_filter([
             MessageTarget::TOPIC => $this->topic,
