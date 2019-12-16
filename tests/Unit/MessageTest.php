@@ -18,6 +18,8 @@ class MessageTest extends TestCase
         $this->assertSame([
             'topic' => 'a-topic',
         ], $message->toArray());
+
+        $this->assertSame([], (clone $message)->toArray());
     }
 
     /** @test */
@@ -30,6 +32,8 @@ class MessageTest extends TestCase
         $this->assertSame([
             'condition' => "'TopicA' in topics && ('TopicB' in topics || 'TopicC' in topics)",
         ], $message->toArray());
+
+        $this->assertSame([], (clone $message)->toArray());
     }
 
     /** @test */
@@ -44,6 +48,8 @@ class MessageTest extends TestCase
         $this->assertSame([
             'token' => $deviceToken,
         ], $message->toArray());
+
+        $this->assertSame([], (clone $message)->toArray());
     }
 
     /** @test */
@@ -61,6 +67,10 @@ class MessageTest extends TestCase
         $this->assertSame([
             'data' => $data,
         ], $message->toArray());
+
+        $this->assertSame([
+            'data' => $data,
+        ], (clone $message)->toArray());
     }
 
     /** @test */
@@ -77,6 +87,15 @@ class MessageTest extends TestCase
                 'image' => 'http://lorempixel.com/400/200/',
             ],
         ], $message->toArray());
+
+
+        $this->assertSame([
+            'notification' => [
+                'title' => 'My Notification Title',
+                'body' => 'My Notification Body',
+                'image' => 'http://lorempixel.com/400/200/',
+            ],
+        ], (clone $message)->toArray());
     }
 
     /** @test */
@@ -100,6 +119,10 @@ class MessageTest extends TestCase
         $this->assertSame([
             'android' => $android,
         ], $message->toArray());
+
+        $this->assertSame([
+            'android' => $android,
+        ], (clone $message)->toArray());
     }
 
     /** @test */
@@ -127,6 +150,10 @@ class MessageTest extends TestCase
         $this->assertSame([
             'apns' => $apns,
         ], $message->toArray());
+
+        $this->assertSame([
+            'apns' => $apns,
+        ], (clone $message)->toArray());
     }
 
     /** @test */
@@ -150,6 +177,10 @@ class MessageTest extends TestCase
         $this->assertSame([
             'webpush' => $webPush,
         ], $message->toArray());
+
+        $this->assertSame([
+            'webpush' => $webPush,
+        ], (clone $message)->toArray());
     }
 
     /** @test */
@@ -166,5 +197,9 @@ class MessageTest extends TestCase
         $this->assertSame([
             'fcm_options' => $fcmOptions,
         ], $message->toArray());
+
+        $this->assertSame([
+            'fcm_options' => $fcmOptions,
+        ], (clone $message)->toArray());
     }
 }
