@@ -35,13 +35,11 @@ abstract class Channel
             return;
         }
 
-        $messageBag = $notification->toFcm($notifiable);
+        $message = $notification->toFcm($notifiable);
 
-        if (! $messageBag instanceof Message) {
+        if (! $message instanceof Message) {
             return;
         }
-
-        $message = clone $messageBag;
 
         $this->messaging->send($this->messageTo(clone $message, $to)->toArray());
     }
