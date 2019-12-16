@@ -18,6 +18,7 @@ class TokenChannelTest extends TestCase
         m::close();
     }
 
+    /** @test */
     public function it_can_send_notification()
     {
         $deviceToken = (string) Str::uuid();
