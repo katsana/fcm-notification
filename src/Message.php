@@ -2,7 +2,6 @@
 
 namespace NotificationChannels\Fcm;
 
-use Illuminate\Support\Arr;
 use Kreait\Firebase\Messaging\MessageTarget;
 
 class Message
@@ -28,29 +27,29 @@ class Message
     protected $data = null;
     
     /**
-     * @var string|null
+     * @var array
      */
-    protected $notification = null;
+    protected $notification = [];
     
     /**
-     * @var array|null
+     * @var array
      */
-    protected $androidConfig = null;
+    protected $androidConfig = [];
     
     /**
-     * @var array|null
+     * @var array
      */
-    protected $apnsConfig = null;
+    protected $apnsConfig = [];
     
     /**
-     * @var array|null
+     * @var array
      */
-    protected $webpushConfig = null;
+    protected $webPushConfig = [];
     
     /**
-     * @var array|null
+     * @var array
      */
-    protected $fcmOptions = null;
+    protected $fcmOptions = [];
 
     /**
      * @param string $topic
@@ -97,12 +96,14 @@ class Message
     }
 
     /**
-     * @param string $notification
+     * @param string|null $title
+     * @param string|null $body
+     * @param string|null $image
      * @return self
      */
-    public function notification(string $notification): self
+    public function notification(string $title = null, string $body = null, string $image = null): self
     {
-        $this->notification = $notification;
+        $this->notification = compact('title', 'body', 'image');
 
         return $this;
     }
@@ -141,10 +142,10 @@ class Message
     }
 
     /**
-     * @param string $fcmOptions
+     * @param array $fcmOptions
      * @return self
      */
-    public function fcmOptions(string $fcmOptions): self
+    public function fcmOptions(array $fcmOptions): self
     {
         $this->fcmOptions = $fcmOptions;
 
