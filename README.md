@@ -54,7 +54,7 @@ If a notification supports being sent as an FCM, you should define a `toFcm` met
  * @param  mixed  $notifiable
  * @return \NotificationChannels\Fcm\Message
  */
-public function toNexmo($notifiable)
+public function toFcm($notifiable)
 {
     return (new Message)
         ->notification('Your title', 'Your body');
