@@ -48,6 +48,10 @@ php artisan vendor:publish --provider="Kreait\Laravel\Firebase\ServiceProvider" 
 If a notification supports being sent as an FCM, you should define a `toFcm` method on the notification class. This method will receive a $notifiable entity and should return a `NotificationChannels\Fcm\Message` instance:
 
 ```php
+use NotificationChannels\Fcm\Message;
+
+// ...
+
 /**
  * Get the FCM representation of the notification.
  *
