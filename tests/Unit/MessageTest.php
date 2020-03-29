@@ -88,7 +88,6 @@ class MessageTest extends TestCase
             ],
         ], $message->toArray());
 
-
         $this->assertSame([
             'notification' => [
                 'title' => 'My Notification Title',

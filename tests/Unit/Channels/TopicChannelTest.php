@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Fcm\Tests\Unit\Channels;
 
-use Mockery as m;
 use Kreait\Firebase\Messaging;
+use Mockery as m;
 use NotificationChannels\Fcm\Channels\TopicChannel;
 use PHPUnit\Framework\TestCase;
 

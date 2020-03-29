@@ -14,7 +14,7 @@ class PingNotification extends Notification
 
     public function toFcm($notifiable)
     {
-        return (new Message)
+        return (new Message())
             ->notification('Ping', 'Pong');
     }
 }

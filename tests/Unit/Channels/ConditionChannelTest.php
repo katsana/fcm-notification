@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Fcm\Tests\Unit\Channels;
 
-use Mockery as m;
 use Kreait\Firebase\Messaging;
+use Mockery as m;
 use NotificationChannels\Fcm\Channels\ConditionChannel;
 use PHPUnit\Framework\TestCase;
 
@@ -42,7 +42,6 @@ class ConditionChannelTest extends TestCase
 
         $this->addToAssertionCount(2);
     }
-
 
     /** @test */
     public function it_cant_send_notification_if_notifiable_doesnt_support_fcm()
