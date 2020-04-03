@@ -21,7 +21,7 @@
     },
     "require": {
         "php": ">=7.2",
-        "kreait/laravel-firebase": "^1.2",
+        "kreait/laravel-firebase": "^1.2 || ^2.0",
         "illuminate/notifications": "^6.0 || ^7.0",
         "illuminate/support": "^6.5.2 || ^7.0"
     },
