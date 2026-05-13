@@ -12,7 +12,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         Notification::resolved(function (ChannelManager $service) {
             $firebase = $this->app->make('firebase.messaging');

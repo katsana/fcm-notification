@@ -6,57 +6,30 @@ use Kreait\Firebase\Messaging\MessageTarget;
 
 class Message
 {
-    /**
-     * @var string|null
-     */
-    protected $topic = null;
+    protected ?string $topic = null;
 
-    /**
-     * @var string|null
-     */
-    protected $condition = null;
+    protected ?string $condition = null;
 
-    /**
-     * @var string|null
-     */
-    protected $token = null;
+    protected ?string $token = null;
 
-    /**
-     * @var array|null
-     */
-    protected $data = null;
+    protected ?array $data = null;
 
-    /**
-     * @var array
-     */
-    protected $notification = [];
+    protected array $notification = [];
 
-    /**
-     * @var array
-     */
-    protected $androidConfig = [];
+    protected array $androidConfig = [];
 
-    /**
-     * @var array
-     */
-    protected $apnsConfig = [];
+    protected array $apnsConfig = [];
 
-    /**
-     * @var array
-     */
-    protected $webPushConfig = [];
+    protected array $webPushConfig = [];
 
-    /**
-     * @var array
-     */
-    protected $fcmOptions = [];
+    protected array $fcmOptions = [];
 
     /**
      * Topic name.
      *
      * @return $this
      */
-    public function topic(string $topic)
+    public function topic(string $topic): self
     {
         $this->topic = $topic;
 
@@ -68,7 +41,7 @@ class Message
      *
      * @return $this
      */
-    public function condition(string $condition)
+    public function condition(string $condition): self
     {
         $this->condition = $condition;
 
@@ -80,7 +53,7 @@ class Message
      *
      * @return $this
      */
-    public function token(string $token)
+    public function token(string $token): self
     {
         $this->token = $token;
 
@@ -92,7 +65,7 @@ class Message
      *
      * @return $this
      */
-    public function data(array $data)
+    public function data(array $data): self
     {
         $this->data = $data;
 
@@ -104,7 +77,7 @@ class Message
      *
      * @return $this
      */
-    public function notification(string $title = null, string $body = null, string $image = null)
+    public function notification(?string $title = null, ?string $body = null, ?string $image = null): self
     {
         $this->notification = compact('title', 'body', 'image');
 
@@ -118,7 +91,7 @@ class Message
      *
      * @return $this
      */
-    public function android(array $androidConfig)
+    public function android(array $androidConfig): self
     {
         $this->androidConfig = $androidConfig;
 
@@ -132,7 +105,7 @@ class Message
      *
      * @return $this
      */
-    public function apns(array $apnsConfig)
+    public function apns(array $apnsConfig): self
     {
         $this->apnsConfig = $apnsConfig;
 
@@ -146,7 +119,7 @@ class Message
      *
      * @return $this
      */
-    public function webPush(array $webPushConfig)
+    public function webPush(array $webPushConfig): self
     {
         $this->webPushConfig = $webPushConfig;
 
@@ -160,7 +133,7 @@ class Message
      *
      * @return $this
      */
-    public function fcmOptions(array $fcmOptions)
+    public function fcmOptions(array $fcmOptions): self
     {
         $this->fcmOptions = $fcmOptions;
 

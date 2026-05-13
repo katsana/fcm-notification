@@ -10,10 +10,8 @@ abstract class Channel
 {
     /**
      * Messaging driver.
-     *
-     * @var \Kreait\Firebase\Messaging
      */
-    protected $messaging;
+    protected Messaging $messaging;
 
     /**
      * Construct notification channel.
@@ -30,7 +28,7 @@ abstract class Channel
      *
      * @return void
      */
-    public function send($notifiable, Notification $notification)
+    public function send($notifiable, Notification $notification): void
     {
         if (\is_null($to = $notifiable->routeNotificationFor($this->channelName(), $notification))) {
             return;
